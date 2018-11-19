@@ -16,6 +16,20 @@ route.get('/', (req,res) => {
     })
 })
 
+// route.post('/' , (req,res) => {
+//   Model.Teacher.findAll(  {
+//     include: [{model:Model.Subject}]
+//   })
+//     .then(data => {
+//       // res.send(data)
+//       res.render('teacher.ejs' , {data:data})
+//     })
+//     .catch(err => {
+//       res.send(`Error in teacher routes findall`)
+//     })
+
+// })
+
 route.get('/edit/:id' , (req,res) => {
   res.render('edit.ejs')
 })
@@ -41,6 +55,9 @@ route.post('/edit/:id', (req,res) => {
         }
     })
     .then(data => {
+
+      //kenapa g bisa di slas aja kenapa harus ada teacher
+      res.redirect('/teacher')
     })
     .catch(err => {
       res.send(`Error in edit teacher route`)
@@ -59,5 +76,27 @@ route.get('/delete/:id' , (req,res) =>{
     })
 
 })
+
+route.get('/add' , (req,res) => {
+  res.render('add.ejs')
+})
+
+route.post('/add' , (req,res) => {
+  let obj = req.body
+  Model.Teacher.create({
+    FirstName : obj.FirstName, 
+      LastName : obj.LastName,
+      email : obj.email,
+      SubjectId: obj.SubjectId
+  })
+  .then(data => {
+    res.redirect('/teacher')
+
+  })
+  .catch(err => {
+    res.send(`Err di add data Teacher`)
+  })
+})
+
 
 module.exports = route
