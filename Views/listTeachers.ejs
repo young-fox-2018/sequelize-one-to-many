@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title> List Teachers</title>
+</head>
+<body>
+    <h1>Teachers Data</h1>
+    <h3><a href="/teachers/add"> Add Teachers</a></h3>
+    <table class= "table"> 
+        <thead>
+            <tr>
+                <td scope= "col">Id</td>
+                <td scope= "col">First Name</td>
+                <td scope= "col">Last Name</td>
+                <td scope= "col">Email</td>
+                <td scope= "col">Subject</td>
+                <td scope= "col">Option</td>
+            </tr>
+        </thead>
+        <tbody>
+            <%  teachers.forEach(function(teacher) { %>
+            <tr>
+                <td><%=teacher.dataValues.id%></td>
+                <td><%=teacher.dataValues.first_name%></td>
+                <td><%=teacher.dataValues.last_name%></td>
+                <td><%=teacher.dataValues.email%></td>
+                <% if (teacher.dataValues.subject_id == null) { %>
+                    <td>unassigned</td>
+                <% } else { %>
+                    <td><%=teacher.dataValues.Subject.subject_name%></td>
+                <% } %>
+                <td> 
+                    <button type="submit" class="btn btn-xs">
+                        <a href="/teacher/edit/<%= teacher.dataValues.id%>">Edit</a> 
+                    </button>|
+                    <button type="submit" class="btn btn-xs" onclick="return confirm ('Are you sure want to delete this data?')">
+                        <a href="/teacher/delete/<%= teacher.dataValues.id%>">Delete </a>
+                    </button>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

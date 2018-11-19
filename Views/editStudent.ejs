@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+        <h2> Edit Student </h2>
+        <h3> Show All Data </h3>
+        <form action="/student/edit/<%=student.id%>" method="post">
+                <p> First Name </p>
+                    <input type = "text" name = "first_name" value= <%=student.first_name%>>
+                <p> Last Name </p>
+                    <input type = "text" name = "last_name" value= <%=student.last_name%>>
+                <p> Email </p>
+                    <input type = "text" name = "email" value= <%=student.email%>>
+                <p>
+                    <button type="submit"> Edit Student </button>
+                </p>
+        </form>      
+</body>
+</html>

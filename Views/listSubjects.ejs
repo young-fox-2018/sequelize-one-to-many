@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title> List Subjects</title>
+</head>
+<body>
+    <h1>Subjects</h1>
+    <h3><a href="/subjects/add"> Add Subject</a></h3>
+    <table class= "table"> 
+        <thead>
+            <tr>
+                <td scope= "col">Id</td>
+                <td scope= "col">Subject Name</td>
+                <td scope= "col">Teacher</td>
+            </tr>
+        </thead>
+        <tbody>
+            <%  subjects.forEach(function(subject) { %>
+            <tr>
+                <td><%=subject.dataValues.id%></td>
+                <td><%=subject.dataValues.subject_name%></td>
+                <td>
+                    <ul>
+                        <%
+                        
+                            subject.dataValues.Teachers.forEach(function(teacher) {
+                                %>
+                                    <li><%= teacher.first_name + " " + teacher.last_name%></li>
+                                <%
+                           
+                            })
+                        %>
+                    </ul>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>    
+</body>
+</html>
