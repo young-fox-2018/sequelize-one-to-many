@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Teacher</title>
+</head>
+<body>
+    <h3>Edit Teacher</h3>
+    <form action="/teachers/edit/<%= data[0].id %>" method="post">
+        <input type="text" name="first_name" value="<%= data[0].first_name %>">
+        <br><br>
+        <input type="text" name="last_name" value="<%= data[0].last_name %>">
+        <br><br>
+        <input type="email" name="email" value="<%= data[0].email %>">
+        <br><br>
+        <label for="subject">Subject:</label>
+        <select name="subject">
+            <option value="<%= null %>">--none--</option>
+            <% let selected = '' %>
+            <% data[1].forEach(element => { %>
+                <% if (data[0].SubjectId == element.id) { %>
+                    <% selected = data[0].Subject.subject_name %>
+                    <option selected="<%= selected %>" value="<%= element.id %>"><%= element.subject_name %></option>
+                <% } else { %>
+                        <option value="<%= element.id %>"><%= element.subject_name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+        <br><br>
+        <button type="submit">SAVE</button>
+        <input type="button" value="CANCEL" onclick="window.location.href='/teachers'"/>
+    </form>
+</body>
+</html>

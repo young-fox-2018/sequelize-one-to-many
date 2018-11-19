@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Teacher</title>
+</head>
+<body>
+    <h3>Teacher Add</h3>
+    <% if (error) { %>
+        <h4 style="color: red"><%= error %></h4>
+    <% } %>
+    <form action="/teachers/add" method="post">
+        <input type="text" name="first_name" placeholder="First Name">
+        <br><br>
+        <input type="text" name="last_name" placeholder="Last Name">
+        <br><br>
+        <input type="email" name="email" placeholder="Email">
+        <br><br>
+        <label for="subject">Subject:</label>
+        <select name="subject">
+            <option value="<%= null %>">--none--</option>
+            <% data.forEach(element => { %>
+                <option value="<%= element.id %>">
+                    <%= element.subject_name %>
+                </option>
+            <% }) %>
+        </select>
+        <br><br>
+        <button type="submit">ADD</button>
+        <input type="button" value="CANCEL" onclick="window.location.href='/teachers'"/>
+    </form>
+    
+</body>
+</html>
