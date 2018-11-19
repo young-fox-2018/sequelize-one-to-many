@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Edit <%=title %> Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/form-styles.css" />
+</head>
+
+<body>
+    <h1>Edit <%=title %> Data</h1>
+    <% if (errors === 'Validation isEmail on email failed') { %>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Validation error!</strong> email format is incorrect!
+        </div>
+    <% } else if(errors === 'Invalid validator function: isUnique') { %>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Validation error!</strong> email already used!
+        </div>    
+    <% } %>
+
+    <p class="center"><a href="/<%=title.toLowerCase() %>">See all <%=title.toLowerCase() %>s</a></p>
+    
+    <form method="POST" action="/<%=title.toLowerCase() %>/edit/<%=data.id %>">
+        <p>First Name:</p>
+        <input type="text" name="firstName" value="<%= data.firstName%>" required>
+        <p>Last Name:</p>
+        <input type="text" name="lastName" value="<%= data.lastName %>" required>
+        <p>Email:</p>
+        <input type="text" name="email" value="<%= data.email %>" required><br><br>
+        Subject: 
+        <select name="SubjectId">
+            <% subjects.forEach( (element, index) => {%>
+                <option value="<%=index+1%>"><%= element %></option>                
+            <% }) %>
+          </select> <br>
+        <input id="submit" type="submit" value="Edit <%=title %>">
+    </form>
+</body>
+</html>
