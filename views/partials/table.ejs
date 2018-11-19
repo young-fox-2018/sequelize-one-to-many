@@ -1,0 +1,23 @@
+<table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <% for(let i in data[0]){ %>
+                    <th scope="col"><%=i %></th>
+
+                <%}%>
+                <th scope="col">Option</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < data.length; i++){ %>
+                <tr>
+                        <% for(let j in data[i]){ %>
+                            <td scope="col"><%=data[i][j] %></td>
+    
+                        <%}%>
+                    <td><a href="edit/<%-data[i].id%>">edit</a> | <a href="delete/<%-data[i].id%>" onclick="return confirm('are you sure?')">delete</a></td>
+                </tr>
+
+            <% } %>
+        </tbody>
+    </table>    

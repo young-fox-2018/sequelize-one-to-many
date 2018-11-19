@@ -1,0 +1,28 @@
+<%- include ../partials/header.ejs %>
+<body>  
+    <h1 class="text-center"> Add Student Data</h1>
+    <div class="col-md-4 center-block">
+        <button type="button" class="btn btn-link center-block" >show all data</button>
+
+    </div>
+        <form action="" method="POST">
+                <div class="form-group">
+                  <label >First Name</label>
+                  <input type="text" class="form-control" name="first_name" aria-describedby="emailHelp" value="<%-data.first_name%>">
+                </div>
+                <div class="form-group">
+                  <label >Last Name</label>
+                  <input type="text" class="form-control" name="last_name" value="<%-data.last_name%>"
+                </div>
+                <div class="form-group">
+                  <label >Email</label>
+                  <input type="email" class="form-control" name="email"  value="<%-data.email%>"
+                </div>
+                  <label >Subject Id</label>
+                  <input type=text class="form-control" name="SubjectId" value="<%-data.SubjectId%>"
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+</body>
+</html>
