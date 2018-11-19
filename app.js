@@ -6,12 +6,15 @@ const teachers = require("./routes/teachers");
 const subject = require("./routes/subject");
 
 app.set("view engine", "ejs");
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:false}));
 
-app.use("/home", home);
-app.use("/home/teachers", teachers);
-app.use("/home/subject", subject);
-app.use("/home/addTeacher", teachers);
+app.use("/", home);
+app.use("/teachers", teachers);
+app.use("/subject", subject);
+
+app.use("/*", (req, res) => {
+    res.send("page not found")
+})
 
 
 app.listen(3000, () => {
