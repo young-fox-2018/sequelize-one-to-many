@@ -24,21 +24,21 @@ class tController{
         })
     }
 
-    // static addTeacher(input){
-    //     return new Promise((resolve, reject) => {
-    //         Teacher.create({
-    //             first_name: input.firstname,
-    //             last_name: input.lastname,
-    //             email: input.email
-    //         })
-    //         .then(data => {
-    //             resolve(data)
-    //         })
-    //         .catch(err => {
-    //             reject(err.dataValues)
-    //         })
-    //     })
-    // }
+    static addTeacher(input){
+        return new Promise((resolve, reject) => {
+            Teacher.create({
+                first_name: input.firstname,
+                last_name: input.lastname,
+                email: input.email
+            })
+            .then(data => {
+                resolve(data)
+            })
+            .catch(err => {
+                reject(err)
+            })
+        })
+    }
 
     static findTeacher(id){
         return new Promise((resolve, reject) => {

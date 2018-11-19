@@ -22,7 +22,7 @@ routes.get("/", function(req, res){
 })
 
 routes.get("/add", function(req, res){
-    res.render("teachersAdd.ejs")
+    res.render("teachersAdd.ejs", {errDeets: req.query.errInfo})
 })
 
 routes.post("/add", function(req, res){
@@ -31,12 +31,7 @@ routes.post("/add", function(req, res){
          res.render("teacherSaved.ejs", {dataSaved: data.dataValues})
      })
      .catch(err => {
-         View.displayError(
-            {
-            Message: "Error in routes.post addTeacher",
-            Details: err
-            }
-        )
+         res.redirect(`/teachers/add?errInfo=${err.errors[0].message}`)
      })
 })
 
