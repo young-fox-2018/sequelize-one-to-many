@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Edit Teacher</title>
+</head>
+<body>
+
+    <%if (error) { 
+      for (let i = 0; i < error.length; i++) { %>
+        <div class="msg msg-error z-depth-3 scale-transition"> <%= error[i].message %> </div>
+    <%  }
+    }%>
+
+    <div class="container">
+        <center>
+            <h1>
+                Edit Teachers Data
+            </h1>
+            <a href="/teacher/">All Teacher Data</a>
+        </center>
+        
+        <form method="POST" action="/teacher/edit/<%=data.id%>">
+            <div class="input-field col s6">
+                <input id="firstName" name="firstName" type="text" class="validate" value="<%=data.firstName%>">
+                <label for="firstName">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="lastName" name="lastName" type="text" class="validate" value="<%=data.lastName%>">
+                <label for="lastName">Last Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="email" name="email" type="text" class="validate" value="<%=data.email%>">
+                <label for="email">Email</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Send</button>
+        </form>
+    </div>
+</body>
+</html>

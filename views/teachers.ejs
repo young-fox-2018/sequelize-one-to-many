@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>All Teacher</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>
+                All Teachers Data
+            </h1>
+            <a href="/teacher/add">Add Teacher Data</a>
+        </center>
+
+        <table class="highlight">
+            <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Subject</th>
+                  <th>Options</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <% for (let i = 0; i < data.length; i++) { %>
+                  <tr>
+                      <td><%= data[i].id %></td>
+                      <td><%= data[i].firstName %></td>
+                      <td><%= data[i].lastName %></td>
+                      <td><%= data[i].email %></td>
+                      <td><% if (data[i].Subject) { %>
+                        <%= data[i].Subject.subjectName %>
+                      <% } else { %>
+                        unassigned
+                      <% } %></td>
+                      <td><a href="/teacher/edit/<%=data[i].id%>">Edit</a> | <a href="/teacher/delete/<%=data[i].id%>" onclick="return  confirm('Are you sure?')">Delete</a></td>
+                  </tr>
+              <%}%>
+            </tbody>
+          </table>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

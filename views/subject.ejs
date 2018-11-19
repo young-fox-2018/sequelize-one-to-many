@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>All Teacher</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>
+                All Subject Data
+            </h1>
+            <!-- <a href="/subject/add">Add Subject Data</a> -->
+        </center>
+
+        <table class="highlight">
+            <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Subject Name</th>
+                  <th>Teacher Name</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <% for (let i = 0; i < data.length; i++) { %>
+                  <tr>
+                      <td><%= data[i].id %></td>
+                      <td><%= data[i].subjectName %></td>
+                      <td><% if (data[i].Teachers) { %>
+                        <ul>
+                       <% for (let j = 0; j < data[i].Teachers.length; j++) { %>
+                            <li><%= j+1 %>. <%= data[i].Teachers[j].firstName %> <%= data[i].Teachers[j].lastName %></li>
+                      <%  } %>
+                        </ul>
+                      <% } else {
+
+                      } %></td>
+                      </tr>
+              <%}%>
+            </tbody>
+          </table>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
