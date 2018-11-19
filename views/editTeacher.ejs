@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit teacher</title>
+</head>
+<body>
+    <center>
+        <div class="header">
+            <h1>Edit Teacher Data</h1>
+            <a href="/teacher" style="text-decoration: none">show all data</a>
+        </div>
+    </center>
+    <form action="/teacher/edit/<%-id%>" method="POST">
+        <div class="form-group">
+            <label for="firstName"><b>First Name</b></label>
+            <input type="text" name="firstName" id="firstName" class="form-control">
+        </div>
+        <div>
+            <label for="lastName"><b>Last Name</b></label>
+            <input type="text" name="lastName" id="lastName" class="form-control">
+        </div>
+        <div>
+            <label for="email"><b>Email</b></label>
+            <input type="text" name="email" id="email" class="form-control">
+        </div>
+        <div>
+            <label for="SubjectId"><b>Subject id</b></label>
+            <input type="text" name="SubjectId" id="SubjectId" class="form-control">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Edit Teacher</button>
+    </form>
+</body>
+</html>

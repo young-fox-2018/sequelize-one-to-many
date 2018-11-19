@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Teachers data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <center>
+        <div class="header">
+            <h1>All Teachers Data</h1>
+            <a href="/teacher/add" style="text-decoration: none">Add Teachers Data</a>
+        </div>
+    </center>
+    <div class="table">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Option</th>
+            </thead>
+            <tbody>
+                <% data.forEach(e => { %>
+                <tr>
+                    <td>
+                        <%= e.id %>
+                    </td>
+                    <td>
+                        <%= e.firstName %>
+                    </td>
+                    <td>
+                        <%= e.lastName %>
+                    </td>
+                    <td>
+                        <%= e.email %>
+                    </td>
+                    <td>
+                        <% if(e.Subject == null) {%>
+                             unassigned
+                        <%} else {%>
+                        <%= e.Subject.subjectName %>
+                        <%}%>
+                    </td>
+                    <td>
+                        <a href="/teacher/edit/<%= e.id %>" style="text-decoration: none">Edit</a>
+                        |
+                        <a href="/teacher/delete/<%= e.id %>" style="text-decoration: none" onclick="return confirm('delete this teacher?')">Delete</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
