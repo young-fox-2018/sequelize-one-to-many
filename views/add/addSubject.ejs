@@ -1,0 +1,36 @@
+
+  <head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="..public/css/materialize.css"  media="screen,projection"/>
+
+  <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+  
+<body class="container center-align">
+<h1>Add Subject</h1>
+
+<div class="row">
+    <form class="col s12" action="/subject/add" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="first_name" type="text" class="validate" name="subject_name">
+          <label for="first_name">Subject Name</label>
+        </div>
+
+      <button class="btn waves-effect waves-light" type="submit">Submit
+          <i class="material-icons right">send</i>
+      </button>
+      
+    </form>
+  </div>
+</body>

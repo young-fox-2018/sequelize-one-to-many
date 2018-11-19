@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+  
+<body class="container center-align">
+<h1>Subject Data</h1>
+<a href="/subject/add"class="waves-effect waves-light btn">Add Subject</a>
+
+<table>
+<thead>
+  <tr>
+      <th>Id</th>
+      <th>Subject Name</th>
+      <th>Teacher</th>
+      <th>Option</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% for (let i =0; i < result.length; i++) { %>
+        <tr>
+            <td> <%= result[i].dataValues.id %> </td>
+            <td> <%= result[i].dataValues.subjectName %> </td>
+            <td>
+            <%for (let j =0; j < result[i].dataValues.Teachers.length; j++) { %>
+                <li class="collection-item"><%= result[i].dataValues.Teachers[j].firstName+ ' '+ result[i].dataValues.Teachers[j].lastName%></li>
+                <% } %>
+                </td>
+            <td> 
+            <a href="/subject/edit/<%=result[i].dataValues.id%>">Edit</a> |
+             <a href="/subject/delete/<%= result[i].dataValues.id %>" onclick="return confirm('Apakah anda ingin delete?')">Delete</a>
+            </td>
+        </tr>
+
+        <% } %>
+</tbody>
+</table>
+
+</body>
+</html>
