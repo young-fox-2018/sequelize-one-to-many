@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit Student</title>
+  <style>
+    * {
+      font-family: courier; 
+      color: rgb(13, 47, 48);
+      width: 100%;
+
+    }
+    
+    h1 {
+        font-size: 40px;
+        font-family: courier; 
+    }
+   
+    input {
+        width: 50%;
+        line-height: 20px;
+        height: 30px;
+        font-size: 15px;
+        border: 1.5px rgb(175, 175, 175) solid;
+        border-radius: 5px;
+    }
+    p {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+   
+    button {
+        margin-top: 1%;
+        width: 140px;
+        height: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        border-radius: 7px;
+        background: rgb(64, 64, 143);
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <h1>Edit Teacher Data</h1>
+    <form method = "post" action="/teacher" >
+      <p>First Name</p>
+        <input type="text" name= "FirstName" placeholder="Enter first name">
+        <p>Last Name</p>
+        <input type="text" name = "LastName" placeholder="Enter last name">
+        <p>Email</p>
+        <input type="text" name="email" placeholder="Enter email">
+        <p>Subject ID</p>
+        <input type="text" name = "SubjectId" placeholder="Enter subject id"></br>
+        <button type="submit">Edit Teacher</button>
+    </form>
+</body>
+</html>
