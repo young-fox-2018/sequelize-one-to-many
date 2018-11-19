@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border='2'>
+        <tr>
+            <th>id</th>
+            <th>Subject name</th>
+            <th>Teachers</th>
+        </tr>
+        <% for(let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= data[i].id %></td>
+            <td><%= data[i].subjectName %></td>
+            <% for(let j = 0; j < data[i].Teachers.length; j++) { %>
+            <td><%= data[i].Teachers[j].firstName + ' ' + data[i].Teachers[j].lastName%></td>
+            <% } %>
+        </tr>
+        <% } %>
+    </table>
+    <a href='/teacher'>Teacher list</a>
+</body>
+</html>
