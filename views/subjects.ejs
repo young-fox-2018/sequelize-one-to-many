@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subjects List</title>
+</head>
+<body>
+    <h1>Subjects</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>SUBJECT NAME</th>
+            <th>TEACHERS</th>
+            <th>OPTIONS</th>
+        </tr>
+        <% data.forEach((element, index) => { %>
+        <tr>
+            <td><%= `${index + 1}. ` %></td>
+            <td><%= element.subject_name %></td>
+            <td><% element.Teachers.forEach((element2, index) => { %>
+                    <%= `${index + 1}. ${element2.first_name} ${element2.last_name}` %><br>
+                <% }) %></td>
+            <td><a href="/subjects/edit/<%= element.id %>">Edit</a> | <a href="/subjects/delete/<%= element.id %>" onclick="return confirm('Are you sure want to delete <%= `${element.subject_name}` %>?')">Delete</a></td>
+        </tr>
+        <% }) %>
+    </table>
+    <br>
+    <input type="button" value="ADD SUBJECT" onclick="window.location.href='/subjects/add'"/>
+    <br><br>
+    <input type="button" value="<< BACK" onclick="window.location.href='/teachers'"/>
+</body>
+</html>

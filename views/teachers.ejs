@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teachers</title>
+</head>
+<body>
+    <h1>Teachers</h1>
+    <table border="1">
+        <tr>
+            <th>NO.</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>SUBJECT</th>
+            <th>OPTIONS</th>
+        </tr>
+        <% data.forEach((element, index) => {%>
+        <tr>
+            <td><%= `${index + 1}. ` %></td>
+            <td><%= `${element.first_name} ${element.last_name}` %></td>
+            <td><%= element.email %></td>
+            <% if (!element.Subject) { %> 
+                <td>unassigned</td>
+            <% } else { %> 
+                <td><%= element.Subject.subject_name %></td>
+            <% } %>
+            <td><a href="/teachers/edit/<%= element.id %>">Edit</a> | <a href="/teachers/delete/<%= element.id %>" onclick="return confirm('Are you sure want to delete <%= `${element.first_name} ${element.last_name}` %>?')">Delete</a></td>
+        </tr>
+        <% }) %>
+    </table>
+    <br>
+    <input type="button" value="ADD TEACHER" onclick="window.location.href='/teachers/add'"/>
+    <input type="button" value="SHOW SUBJECTS" onclick="window.location.href='/subjects'"/>
+</body>
+</html>
