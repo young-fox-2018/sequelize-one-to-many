@@ -1,0 +1,32 @@
+<html>
+    <style>
+    a:link {color: black}
+    a:visited {color:green}
+    a:hover {color:pink}
+    table,th,td{border: 2px solid black;}
+    </style>
+    <h1 style="text-align:center; color:violet">Subjects Data</h1>
+    <h3 style="text-align:center; margin-top: -15px;"><a href="/subjects/add">add subject</a></h3>
+    <table style="width: 100% ">
+        <tr>
+            <th>ID</th>
+            <th>Subject Name</th>
+            <th>Teacher</th>
+            <th>Options</th>
+        </tr>
+            
+            <% for(let iSubjects = 0 ; iSubjects<sbAll.length ; iSubjects++) {%>
+        <tr>
+           <% console.log(sbAll[iSubjects]) %>
+            <td style="text-align: center"><%= iSubjects+1 %></td>
+            <td style="text-align: center"><%= sbAll[iSubjects].subjectName %></td>
+            <td style="text-align: center">
+                <% for(let iTeachers = 0 ; iTeachers<sbAll[iSubjects].Teachers.length ; iTeachers++){ %>
+                <%= iTeachers+1 %>. <%= sbAll[iSubjects].Teachers[iTeachers].firstName %> <%= sbAll[iSubjects].Teachers[iTeachers].lastName %><br>
+            <% } %>
+            </td>
+            <td style="text-align: center"><a href="/subjects/edit/<%= sbAll[iSubjects].id %>">Edit</a> | <a href="/subjects/delete/<%= sbAll[iSubjects].id %>" onclick= 'return confirm("WARNING! \nAre you sure about deleting this subject?")'</a> Delete</a></td>
+        </tr>
+        <% } %>
+    </table>
+</html>
