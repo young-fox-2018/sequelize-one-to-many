@@ -1,0 +1,24 @@
+ <%- include ../partial/header.ejs %>
+    </head>
+    <body>
+       <form action="/teacher/edit/<%= data.id %>" method="POST">
+            First name:<br>
+            <input type="text" name="firstName" value=<%= data.firstName %>
+            <br>
+            <br>
+            Last name:<br>
+            <input type="text" name="lastName" value=<%= data.lastName %>
+            <br>
+            <br>
+            Email: <br>
+            <input type="text" name="email" value=<%= data.email %>
+            <br>
+            <br>
+            SubjectId: <br>
+            <input type="text" name="subjectId" value=<%= data.subjectId %>
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form> 
+        <%- include ../partial/footer.ejs %>
