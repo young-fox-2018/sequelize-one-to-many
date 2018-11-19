@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Subject</h1>
+    <ul>
+      <%data.forEach(function(subject){%>
+      <li>
+        Subject Name : <%=subject.subjectName %>
+        <br>
+        Teacher :
+        <br>
+          <% for (var i = 0; i < subject.Teachers.length; i++) {%>
+            <%=subject.Teachers[i].firstName+" "+subject.Teachers[i].lastName%><br>
+          <%}%>
+        <br>
+        <a href="subject/edit/<%=subject.id%>">Edit</a>
+        <a href="subject/delete/<%=subject.id%>" onclick="return confirm('Apa anda yakin ingin menghapus data ini?')">Delete</a>
+      </li>
+      <br>
+      <%})%>
+      <br>
+      <a href="subject/add">Add Subject</a>
+    </ul>
+  </body>
+</html>

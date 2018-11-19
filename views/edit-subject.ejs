@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Subject</h1>
+    <form method="POST" action="/subject/edit/<%=data.id%>"">
+      Subject Name:<br>
+      <input type="text" name="subject" value="<%=data.subjectName%>">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
