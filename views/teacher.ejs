@@ -1,0 +1,42 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Teacher Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/table-styles.css" />
+</head>
+
+<body>
+    <h1>Teachers Data</h1>
+    <p class="center"><a href="/teacher/add">Add New Teacher</a></p>
+    
+    <table>
+        <col width="5%">
+        <col width="15%">
+        <col width="15%">
+        <col width="30%">
+        <col width="15%">
+        <col width="15%">        
+        <tr>
+            <th>No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Options</th>
+        </tr>
+        <% for( let i = 0; i < data.length; i++)  {%>
+            <tr>
+                <td class="center"><%= i+1 %></td>
+                <td><%= data[i].firstName %></td>
+                <td><%= data[i].lastName %></td>
+                <td><%= data[i].email %></td>
+                <td class="center"><%= data[i].Subject.subjectName || 'unassigned' %></td>
+                <td class="center"><a href="/teacher/edit/<%= data[i].id%>"> Edit </a> | <a href="/teacher/delete/<%= data[i].id%>" onclick="return confirm('Delete this teacher?')"> Delete </a></td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+</html>
