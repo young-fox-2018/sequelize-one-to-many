@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Teachers</title>
+</head>
+<body>
+    <div class="container container-fluid">
+        <h1>
+            Edit Teacher Data
+        </h1>
+
+        <table class="table table-hover table-striped">
+            <form method="POST" action="/teacher/edit/<%-data.id%>">
+                <input type="text" name="first_name" value="<%- data.first_name %>"><br>
+                <input type="text" name="last_name" value="<%- data.last_name %>"><br>
+                <input type="text" name="email" value="<%- data.email %>"><br>
+                <input list = "SubjectId" name = "SubjectId" placeholder="subject">
+                    <datalist id = "SubjectId">
+                        <option value = 1></option>
+                        <option value = 2></option>
+                        <option value = 0></option>
+                    </datalist>
+                <button type="submit"> Submit </button>
+            </form>
+        </table>
+    </div>
+</body>
+</html>
