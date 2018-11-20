@@ -29,13 +29,14 @@ router.post("/add", (req, res) => {
         email: req.body.email,
         subjectId: req.body.subjectId
     }
-    Model.Teacher.crete(obj)
-        .then(data => {
-            res.direct("/teachers")
-        })
-        .catch(err => {
-            res.redirect(303, "/")
-        })
+
+    Model.Teacher.create(obj)
+    .then(data => {
+        res.redirect("/teachers")
+    })
+    .catch(err => {
+        res.send("Error while adding new data")
+    })
 })
 
 module.exports = router
