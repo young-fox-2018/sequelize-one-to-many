@@ -16,20 +16,6 @@ route.get('/', (req,res) => {
     })
 })
 
-// route.post('/' , (req,res) => {
-//   Model.Teacher.findAll(  {
-//     include: [{model:Model.Subject}]
-//   })
-//     .then(data => {
-//       // res.send(data)
-//       res.render('teacher.ejs' , {data:data})
-//     })
-//     .catch(err => {
-//       res.send(`Error in teacher routes findall`)
-//     })
-
-// })
-
 route.get('/edit/:id' , (req,res) => {
   res.render('edit.ejs')
 })
@@ -55,7 +41,6 @@ route.post('/edit/:id', (req,res) => {
         }
     })
     .then(data => {
-
       //kenapa g bisa di slas aja kenapa harus ada teacher
       res.redirect('/teacher')
     })

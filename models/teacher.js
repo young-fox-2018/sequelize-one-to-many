@@ -5,7 +5,13 @@ module.exports = (sequelize, DataTypes) => {
   const Teacher = sequelize.define('Teacher', {
     FirstName: DataTypes.STRING,
     LastName: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate:{
+        isEmail: true,
+        isUnique: true
+      }
+    },
     SubjectId: DataTypes.INTEGER
   }, {});
   Teacher.associate = function(models) {
