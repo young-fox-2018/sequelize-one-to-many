@@ -1,7 +1,7 @@
 <%- include ../partials/header.ejs %>
 <body>
     <div class"container">
-        <h1>Student Data</h1>
+        <h1>List of Subject</h1>
         <table class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@
                                 </Ul>
                             </td>
 
-                            <td><a href="edit/<%-data[i].id%>">edit</a> | <a href="delete/<%-data[i].id%>" onclick="return confirm('are you sure?')">delete</a></td>
+                            <td><a href="/subject/edit/<%-data[i].id%>">edit</a> | <a href="/subject/delete/<%-data[i].id%>" onclick="return confirm('are you sure?')">delete</a></td>
                         </tr>
         
                     <% } %>

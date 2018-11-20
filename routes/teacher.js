@@ -63,24 +63,53 @@ routes.get("/edit/:id", (req,res) =>{
 })
 
 routes.post("/edit/:id", (req,res) =>{
-    Model.Teacher.update({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        SubjectId: req.body.SubjectId
-    },{
-        where:
-        {
-            id:req.params.id
+    Model.Teacher.findAll({
+        where:{
+            email: req.body.email,
         }
     })
-    .then(() =>{
-        res.redirect("/")
+    .then(data =>{
+        let dataUpdate = {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                SubjectId: req.body.SubjectId
+            }
+
+      if(data.length > 0){
+          delete dataUpdate.email
+      }
+
+      Model.Teacher.update(dataUpdate,{
+          where:{
+              id: req.params.id
+          }
+      })
+      .then(() =>{
+            res.redirect("/teacher")
+        })
+        .catch((err) =>{
+            res.send(err)
+        })
     })
-    .catch((err) =>{
-        res.send(err)
-    })
-    // res.send(req.body)
+
+    // Model.Teacher.update({
+    //     first_name: req.body.first_name,
+    //     last_name: req.body.last_name,
+    //     email: req.body.email,
+    //     SubjectId: req.body.SubjectId
+    // },{
+    //     where:
+    //     {
+    //         id:req.params.id
+    //     }
+    // })
+    // .then(() =>{
+    //     res.redirect("/")
+    // })
+    // .catch((err) =>{
+    //     res.send(err)
+    // })
 })
 
 module.exports = routes
