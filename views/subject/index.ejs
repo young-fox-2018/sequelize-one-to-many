@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            h1 {
+                justify-content: center;
+                text-align:center;
+            }
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                overflow: auto;
+            }
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Subject Name</th>
+                <th>Teacher</th>
+            </tr>
+            <% for (let i = 0; i < result.length; i++) { %>
+            <tr>
+                <td><%= result[i].id %></td>
+                <td><%= result[i].subjectName %></td>
+                <td>
+                    <ol>
+                    <% for (let j = 0; j < result[i].teacher.length; j++) { %>
+                    <li>
+                        <%= result[i].teacher[j].firstName %>  <%= result[i].teacher[j].lastName %>
+                    </li>
+                    <%} %>
+                    </ol>
+                </td>
+            <tr>
+            <% } %>
+        </table>
+    </body>
+</html>
