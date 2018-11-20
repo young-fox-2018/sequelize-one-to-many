@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            table {
+                border-collapse: collapse;
+            }
+            
+            table, td, th {
+                border: 1px solid black;
+            }
+            </style>
+</head>
+<body>
+    <h1>All Teacher Data</h1>
+    <table style="width: 100%">
+        <tr>
+            <th>id</th>
+            <th>first Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Options</th>
+        </tr>
+        <% for(let i = 0 ; i < data.length;i++){%>
+            <tr>
+                <td><%=data[i].id%></td>
+                <td><%= data[i].first_Name%></td>
+                <td><%= data[i].Last_Name%></td>
+                <td><%=data[i].Email%></td>
+                <%if(data[i].Subjectid === null){%>
+                    <td><%= data[i].Subjectid = "unassigned"%> </td>  
+                <%}else{%>
+                    <td><%= data[i].Subjectid%></td>
+                <%}%>
+                <td><a href="/Teacher/edit/<%=data[i].id%>">Edit</a> |
+                    <a onclick="confirm('Are you sure')" href="Teacher/delete/<%=data[i].id%>">Delete</a>
+                </td>
+            </tr>
+        <%}%>
+    
+    </table>
+</body>
+</html>
